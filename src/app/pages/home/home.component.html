@@ -1,0 +1,83 @@
+<app-navbar></app-navbar>
+<app-sidenav></app-sidenav>
+<div class="container">
+    <div class="row cards">
+        <div class="col-sm-6">
+            <div class="card card-crear">
+                <div class="card-body">
+                    <button class="boton-crear">
+                        <p class="card-text"><i class="bi bi-plus-circle-fill"></i> CREAR</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card card-ingresar">
+                <div class="card-body">
+                    <button class="boton-ingresar">
+                        <p class="card-text"><i class="bi bi-lightning-fill"></i>INGRESAR CODIGO</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr class="separation mt-5">
+
+<div class="swiper-wrapper">
+    <div class="slideButtons">
+        <div (click)="nextQuiz()" class="swiper-button-next"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="actividades">
+                <p> Actividades Recientes</p>
+                <hr class="separationAvtivities">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3 mb-5 mt-5 " *ngFor="let quiz of quizes | slice:x:y; let i=index">
+                <div class="card card-quiz">
+                    <h3>{{quiz.title}}</h3>
+                    <p *ngIf="quiz.description; else noDescp">{{quiz.description | slice:0:50}}...</p>
+                    <ng-template #noDescp> Sin descripcion
+                    </ng-template>
+                    <p class="icons-quiz"><i class="bi bi-person"></i>{{quiz.participantes}}<i class="bi bi-question-circle"></i>{{quiz.preguntas}}<i class="bi bi-bookmark-star"></i>{{quiz.ratio}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slideButtons">
+        <div (click)="prevQuiz()" class="swiper-button-prev"></div>
+    </div>
+
+</div>
+
+
+
+
+
+
+<!-- <div class="container">
+    <div class="swiper-container ">
+        <div class="swiper-wrapper">
+            <div *ngFor="let quiz of quizes" class="swiper-slide">
+                <div class="swiper-cards">
+                    <div class="card-swiper">
+                        <h3>{{quiz.title}}</h3>
+                        <p *ngIf="quiz.description; else noDescp">{{quiz.description | slice:0:50}}...</p>
+                        <ng-template #noDescp> Sin descripcion
+                        </ng-template>
+                        <p class="icons-swiper"><i class="bi bi-person"></i>{{quiz.participantes}}<i class="bi bi-question-circle"></i>{{quiz.preguntas}}<i class="bi bi-bookmark-star"></i>{{quiz.ratio}}</p>
+                    </div>
+                    <div class="slideButtons">
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
