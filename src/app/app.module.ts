@@ -5,19 +5,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
-
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { LandingComponent } from './pages/landing/landing.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    SidenavComponent
+    SidebarComponent,
+    LandingComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     
   ],
   providers: [],

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import Swiper, { Navigation, Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit {
 
   constructor() { }
   public quizes = [{
@@ -87,22 +87,22 @@ export class HomeComponent implements OnInit, AfterViewInit {
 ]
   public x:number = 0
   public y:number = 4
-  private mySwiper!: Swiper;
-
+  // private mySwiper!: Swiper;
+ 
   ngOnInit(): void {
   }
 
-  ngAfterViewInit(): void {
-    this.mySwiper = new Swiper('.swiper-container', {
-    modules: [Navigation, Pagination],
-    loop: true,
-    spaceBetween: 4000,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  }); 
-  }
+  // ngAfterViewInit(): void {
+  //   this.mySwiper = new Swiper('.swiper-container', {
+  //   modules: [Navigation, Pagination],
+  //   loop: true,
+  //   spaceBetween: 4000,
+  //   navigation: {
+  //     nextEl: '.swiper-button-next',
+  //     prevEl: '.swiper-button-prev',
+  //   },
+  // }); 
+  // }
   nextQuiz(){
     if(this.x >= this.quizes.length-4){
        null;
@@ -110,8 +110,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.x +=4;
       this.y +=4;
     }
-
-
   }
   prevQuiz(){
     if(this.x <=0){
@@ -120,7 +118,5 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.x -=4;
     this.y -=4;
    }
-
-
   }
 }
